@@ -1,3 +1,3 @@
-# template-node-library
+# enw
 
-Node library template.
+Simple environment variable validator.

@@ -1,3 +1,9 @@
 {
-  "extends": "tslint-config-hurp"
+  "extends": "tslint-config-hurp",
+  "rules": {
+    "no-submodule-imports": [
+      true,
+      "validator"
+    ]
+  }
 }

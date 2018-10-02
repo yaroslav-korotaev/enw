@@ -1,9 +1,13 @@
 {
-  "name": "template-node-library",
+  "name": "enw",
   "version": "0.0.0",
-  "description": "Node library template",
-  "keywords": [],
-  "bugs": "https://github.com/yaroslav-korotaev/template-node-library/issues",
+  "description": "Simple environment variable validator",
+  "keywords": [
+    "environment",
+    "env",
+    "validate"
+  ],
+  "bugs": "https://github.com/yaroslav-korotaev/enw/issues",
   "license": "MIT",
   "author": "Yaroslav Korotaev <yaroslav.korotaev@gmail.com>",
   "files": [
@@ -11,7 +15,7 @@
   ],
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
-  "repository": "yaroslav-korotaev/template-node-library",
+  "repository": "yaroslav-korotaev/enw",
   "scripts": {
     "lint:src": "tslint -c tslint.json -p tsconfig.json -t stylish",
     "prelint:test": "tsc -p tsconfig.test.json",
@@ -20,7 +24,11 @@
     "build": "tsc",
     "test": "jest"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@types/validator": "^9.4.2",
+    "is-plain-object": "^2.0.4",
+    "validator": "^10.8.0"
+  },
   "devDependencies": {
     "@types/jest": "^23.3.2",
     "@types/node": "^10.9.4",
