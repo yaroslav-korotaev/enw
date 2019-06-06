@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.4] - 2019-06-07
+### Changed
+- Dependencies are updated
+
 ## [0.1.3] - 2018-12-07
 ### Changed
 - Dependencies are updated
