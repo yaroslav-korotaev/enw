@@ -3,6 +3,7 @@ import isFloat from 'validator/lib/isFloat';
 import isIP from 'validator/lib/isIP';
 import isInt from 'validator/lib/isInt';
 import isPort from 'validator/lib/isPort';
+import validator from 'validator';
 import deepMap from './deep-map';
 
 export type ReadFn<T> = (env: NodeJS.ProcessEnv, prefix?: string) => T;
@@ -62,7 +63,7 @@ export function createValidator<T, O>(validate: ValidateFn<T, O>): Validator<T, 
 export type StringOptions = undefined;
 export const str = createValidator<string, StringOptions>(value => value);
 
-export type FloatOptions = ValidatorJS.IsFloatOptions;
+export type FloatOptions = validator.IsFloatOptions;
 export const float = createValidator<number, FloatOptions>((value, options) => {
   if (!isFloat(value, options))
     throw new Error('invalid float number');
@@ -70,7 +71,7 @@ export const float = createValidator<number, FloatOptions>((value, options) => {
   return parseFloat(value);
 });
 
-export type IntegerOptions = ValidatorJS.IsIntOptions;
+export type IntegerOptions = validator.IsIntOptions;
 export const integer = createValidator<number, IntegerOptions>((value, options) => {
   if (!isInt(value, options))
     throw new Error('invalid integer number');
@@ -78,7 +79,7 @@ export const integer = createValidator<number, IntegerOptions>((value, options) 
   return parseInt(value, 10);
 });
 
-export type HostOptions = ValidatorJS.IsFQDNOptions & { ipVersion?: number };
+export type HostOptions = validator.IsFQDNOptions & { ipVersion?: '4' | '6' };
 export const host = createValidator<string, HostOptions>((value, options) => {
   if (!isFQDN(value, options) && !isIP(value, options && options.ipVersion))
     throw new Error('invalid host');
